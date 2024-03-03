@@ -12,7 +12,6 @@
             <th>Amount</th>
             <th>Paid</th>
             <th>Edit</th>
-
         </thead>
         <tbody>
             @foreach($dataReport as $record)
