@@ -4856,3 +4856,23 @@
 #53 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
 #54 {main}
 "} 
+[2024-03-03 13:55:50] local.ERROR: filemtime(): stat failed for /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/.env {"exception":"[object] (ErrorException(code: 0): filemtime(): stat failed for /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/.env at /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php:102)
+[stacktrace]
+#0 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#2 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php(102): filemtime()
+#3 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\ServeCommand->handle()
+#4 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#6 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#7 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#8 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#9 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute()
+#10 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#11 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#12 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#13 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#14 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#15 /home/victor/Insync/vmorenomarin@gmail.com/git/laravel-project/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#16 {main}
+"} 
