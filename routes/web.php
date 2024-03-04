@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ExpenseReportsController;
+use App\Http\Controllers\ExpensesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['name' => "victo3"]);
 });
+
+Route::get('/dash', [HomeController::class, 'dash']);
+
+Route::resource('expense_reports', ExpenseReportsController::class);
+Route::resource('expenses', ExpensesController::class);
+
+Route::get('expense_reports/{expense_report}/confirmDelete', [ExpenseReportsController::class, 'confirmDelete']);
+Route::get('expenses/{expense}/confirmDelete', [ExpensesController::class, 'confirmDelete']);
