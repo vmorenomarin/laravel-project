@@ -26,8 +26,9 @@
                         class="material-symbols-outlined icon-table-negative">unpublished</span>' !!}
                 </td>
                 <td>
-                    <span class="material-symbols-outlined edit-button"><a
-                            href="expense_reports/{{$record['id']}}/edit">edit</a></span>
+                    <a href="expense_reports/{{$record['id']}}/edit" class="buttonNoText">
+                        <span class="material-symbols-outlined edit-button">edit</span>
+                    </a>
                 </td>
             </tr>
             @endforeach

@@ -24,14 +24,17 @@ if (modal !== null) {
 
     let valueOn=document.querySelector("span.on").dataset.value;
     let valueOff=document.querySelector("span.off").dataset.value;
-    document.querySelector(".thumb").textContent=valueOff;
+    let iconOn=document.querySelector("span.on").dataset.icon;
+    let iconOff=document.querySelector("span.off").dataset.icon;
+    document.querySelector(".thumb span").textContent=iconOff;
     let checkbox = document.getElementById("toggle");
     if(!document.querySelector("#editMode")) checkbox.value=valueOff;
     
     function toggle() {
         checkbox.checked = !checkbox.checked;
         checkbox.value = checkbox.checked ? valueOn : valueOff;
-        document.querySelector(".thumb").textContent=checkbox.value;
+        checkbox.icon = checkbox.checked ? iconOn : iconOff;
+        document.querySelector(".thumb span").textContent=checkbox.icon;
 
       }
       

@@ -5,7 +5,7 @@
 
 
 <dialog id="miModal">
-    <a href="/expense_reports" id="cerrarModal" title="Cerar sin guardar">
+    <a href="/expense_reports" id="cerrarModal" title="Cerar sin guardar" class="buttonNoText">
         <span class="material-symbols-outlined">
             cancel
         </span>

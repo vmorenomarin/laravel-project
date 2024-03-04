@@ -5,7 +5,7 @@
 
 
 <dialog id="miModal">
-    <a href="/expense_reports" id="cerrarModal" title="Cerar sin guardar">
+    <a href="/expense_reports" id="cerrarModal" title="Cerar sin guardar" class="buttonNoText">
         <span class="material-symbols-outlined">
             cancel
         </span>
@@ -36,20 +36,21 @@
                         ¿Pagado?
                     </label>
                     <div class="switchContent">
-                        <span class="label-value off" data-value="N">No</span>
+                        <span class="label-value off" data-icon="block" data-value="N">No</span>
                         <div class=" switch">
                             <input type="checkbox" id="toggle" name="toggle"
                                 value="{!!$report['is_active']==1 ? 'S':'N'  !!}">
-                            <div class=" thumb">
+                            <div class="thumb">
+                                <span class="material-symbols-outlined "></span>
                             </div>
                         </div>
-                        <span class="label-value on" data-value="S">Sí</span>
+                        <span class="label-value on" data-icon="check_circle" data-value="S">Sí</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="buttons">
-            <a href="/expense_reports/{!!$report['id']!!}/confirmDelete" id="delete-btn" title="Eliminar reporte"><span
+            <a href="/expense_reports/{!!$report['id']!!}/confirmDelete" id="delete-btn" title="Eliminar reporte" class="buttonNoText"><span
                     class="material-symbols-outlined">
                     delete </span></a>
             <button type="submit" class="button"><span class="material-symbols-outlined">

@@ -7,22 +7,28 @@
     --red-corp-alpha:#ff004f1f;
     --orange-corp: #f47400;
     --bg-dark-gray: #2A2E32;
-    --bg-dark-gray-alpha: #7b7b7b1a;
+    --bg-dark-gray-alpha: #7b7b7b1a; 
     --bg-light-gray: #FCFCFC;
+    --bg-main: #f3f3f3;
     --green-corp: #77DD77;
 }
 
 * {
-    padding: 0;
     box-sizing: border-box;
     outline: none;
     font-size: 1.4rem;
 }
 
+body{
+    padding: 0 20rem;
+}
+
 .main {
-    padding: 0 10rem 0 10rem;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-main);
+    padding: 1em;
+    border-radius: 1rem;
 }
 
 .material-symbols-outlined {
@@ -61,7 +67,7 @@ button.button {
 #delete-btn.button:hover,
 .alert.buttons button:hover {
     color: var(--blue-corp);
-    background-color: #7b7b7b1a;
+    background-color: var(--bg-light-gray);
     border: 0.1rem solid var(--blue-corp);
     transition: 0.3s;
 }
@@ -81,9 +87,26 @@ form .buttons {
     justify-content: space-between;
 }
 
+.buttonNoText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.buttonNoText:hover{
+    border-radius: 50%;
+    background-color: #7b7b7b1a;
+}
+
 .buttons #delete-btn {
-    background: white;
     color: var(--red-corp);
+}
+
+.buttons #delete-btn:hover {
+    border-radius: 50%;
+    background-color: #7b7b7b1a;
 }
 
 .alert.buttons button {
