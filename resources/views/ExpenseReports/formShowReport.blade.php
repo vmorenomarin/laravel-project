@@ -87,6 +87,14 @@
             </span>
             Add expense
         </a>
+        @if($report->expenses->count()>0)
+        <a href="/expense_reports/{{$report->id}}/confirmSendEmail" id="sendEmail" class="button">
+            <span class="material-symbols-outlined">
+                email
+            </span>
+            Send report
+        </a>
+        @endif
     </div>
 </div>
 

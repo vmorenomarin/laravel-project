@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ExpensesReport;
 use App\Models\Expense;
 use App\Models\ExpenseReport;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 class ExpenseReportsController extends Controller
 {
@@ -15,11 +18,11 @@ class ExpenseReportsController extends Controller
     {
         $expenseReportsData = ExpenseReport::all();
         $expensesSum = $expenseReportsData->sum('price');
-        if($expenseReportsData->count()>0)
+        if ($expenseReportsData->count() > 0)
             $expenseReportsData[0]['total'] = $expensesSum;
-        
+
         // dd($expenseReportsData->count());
-        
+
         return view('ExpenseReports.index', ['dataReport' => $expenseReportsData]);
     }
 
@@ -34,15 +37,15 @@ class ExpenseReportsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
 
-        $validData = $request->validate([
+        $validData = $req->validate([
             'description' => 'required|min:3'
         ]);
         $report = new ExpenseReport();
         $report->description = $validData['description'];
-        $report->is_active = null == $request->get(key: 'toggle') ? false : true;
+        $report->is_active = null == $req->get(key: 'toggle') ? false : true;
 
         $report->save();
 
@@ -69,12 +72,12 @@ class ExpenseReportsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id)
     {
         $report = ExpenseReport::find($id);
-        $report->description = $request->get(key: 'description');
-        $report->price=$report->expenses->sum('price');
-        $report->is_active = null == $request->get(key: 'toggle') ? false : true;
+        $report->description = $req->get(key: 'description');
+        $report->price = $report->expenses->sum('price');
+        $report->is_active = null == $req->get(key: 'toggle') ? false : true;
 
         $report->save();
 
@@ -97,5 +100,17 @@ class ExpenseReportsController extends Controller
         $report = ExpenseReport::find($id);
 
         return view(view: 'alerts.confirmAlertReport', data: ['report' => $report]);
+    }
+
+    public function confirmSendEmail(ExpenseReport $expenseReport)
+    {
+        return view(view: 'alerts.confirmAlertEmail', data: ['report' => $expenseReport]);
+    }
+
+    public function sendEmail(Request $req, ExpenseReport $expenseReport)
+    {
+        Mail::to($req->get('email'))->send(new ExpensesReport($expenseReport));
+
+        return redirect("/expense_reports/$expenseReport->id");
     }
 }

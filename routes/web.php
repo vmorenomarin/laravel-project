@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::resource('/expense_reports', ExpenseReportsController::class);
 Route::get('/expense_reports/{expense_report}/confirmDelete', [ExpenseReportsController::class, 'confirmDelete']);
+Route::get('/expense_reports/{expense_report}/confirmSendEmail', [ExpenseReportsController::class, 'confirmSendEmail']);
+Route::post('/expense_reports/{expense_report}/sendEmail', [ExpenseReportsController::class, 'sendEmail']);
 
 
 Route::resource('/expense_reports/{expense_report}/expenses', ExpensesController::class);
