@@ -6,11 +6,13 @@
 
 <dialog id="miModal">
     <h2>Eliminar gasto {{$expense['id']}}</h2>
-    <form action="{{ route('expenses.destroy', $expense['id'])}}" method="POST" id="expense">
+    <form action="/expense_reports/{{$expense['expense_report_id']}}/expenses/{{$expense['id']}}" method="POST"
+        id="expense">
         @csrf
         @method('delete')
         <p>¿Está seguro de eliminar el gasto <b>{{$expense['description']}}</b> ({{$expense['id']}})?</p>
-        <a href="/expenses/{{$expense['id']}}/edit" id="cerrarModal" title="Cancelar">
+        <a href="/expense_reports/{{$expense['expense_report_id']}}/expenses/{{$expense['id']}}/edit" id="cerrarModal"
+            title="Cancelar">
             <span class="material-symbols-outlined">cancel</span>
         </a>
         <div class="buttons alert">

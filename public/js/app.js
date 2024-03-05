@@ -39,11 +39,8 @@ if (modal !== null) {
 
     document.querySelector(".switch").addEventListener("click", toggle);
 
-    if (
-        document.querySelector("#editMode") &&
-        document.querySelector("input#toggle").value == "S"
-    )
-        toggle();
+    if (document.querySelector("#editMode") && document.querySelector("input#toggle").value == "S"
+    )toggle();
 
     let alertDiv = document.querySelector("div.alert");
     alertDiv.addEventListener("click", () => {

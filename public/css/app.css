@@ -2,15 +2,16 @@
     font-size: 62.5%;
     font-family: 'Josefin Sans', sans-serif;
     --blue-corp: #2298EF;
-    --blue-corp-alpha: #22983f1f;
+    --blue-corp-alpha: #047ffd1f;
     --red-corp: #ff004f;
-    --red-corp-alpha:#ff004f1f;
+    --red-corp-alpha: #ff004f1f;
     --orange-corp: #f47400;
     --bg-dark-gray: #2A2E32;
-    --bg-dark-gray-alpha: #7b7b7b1a; 
+    --bg-dark-gray-alpha: #7b7b7b1a;
     --bg-light-gray: #FCFCFC;
     --bg-main: #f3f3f3;
     --green-corp: #77DD77;
+    --shadow: 2px 2px 8px #a3a3a37a
 }
 
 * {
@@ -19,7 +20,7 @@
     font-size: 1.4rem;
 }
 
-body{
+body {
     padding: 0 20rem;
 }
 
@@ -29,6 +30,8 @@ body{
     background-color: var(--bg-main);
     padding: 1em;
     border-radius: 1rem;
+    border: 0.1rem solid var(--bg-dark-gray-alpha);
+    box-shadow: var(--shadow);
 }
 
 .material-symbols-outlined {
@@ -62,6 +65,13 @@ button.button {
     transition: 0.5s;
 }
 
+button.button:disabled{
+    background-color: var(--bg-dark-gray-alpha);
+    border: none;
+    color: var(--blue-corp-alpha);
+    cursor: default;
+}
+
 
 .button:hover,
 #delete-btn.button:hover,
@@ -87,17 +97,21 @@ form .buttons {
     justify-content: space-between;
 }
 
-.buttonNoText{
+.buttonNoText {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
+    color: inherit;
 }
 
-.buttonNoText:hover{
+.buttonNoText:hover {
     border-radius: 50%;
-    background-color: #7b7b7b1a;
+    border: .1rem solid var(--bg-dark-gray-alpha);
+    background-color: var(--bg-light-gray);
+    color: var(--blue-corp);
+    box-shadow: var(--shadow);
 }
 
 .buttons #delete-btn {
@@ -294,8 +308,7 @@ a#cerrarModal:hover {
 
 .alert-danger {
     border: 1px solid var(--red-corp);
-    background-color: var(--red-corp-alpha)
-    color: var(--red-corp);
+    background-color: var(--red-corp-alpha) color: var(--red-corp);
 }
 
 .alert-info {
@@ -361,16 +374,16 @@ table tbody tr span.icon-table-negative {
     color: #ff004f;
 }
 
-.footer-buttons{
+.footer-buttons {
     display: flex;
     gap: 2rem;
 }
 
-div#new_expense_wrapper{
+div#new_expense_wrapper {
     display: none;
 }
 
-div#new_expense_wrapper.show{
+div#new_expense_wrapper.show {
     display: flex;
 }
 
@@ -378,4 +391,8 @@ div#new_expense_wrapper.show{
     position: absolute;
     z-index: -1;
     top: 0px;
+}
+
+@media only screen and (max-width:1300px) {
+    body{padding: 0 20%}
 }

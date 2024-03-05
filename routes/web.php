@@ -18,13 +18,12 @@ use App\Http\Controllers\ExpensesController;
 */
 
 Route::get('/', function () {
-    return view('welcome', ['name' => "victo3"]);
+    return redirect("expense_reports");
 });
 
-Route::get('/dash', [HomeController::class, 'dash']);
+Route::resource('/expense_reports', ExpenseReportsController::class);
+Route::get('/expense_reports/{expense_report}/confirmDelete', [ExpenseReportsController::class, 'confirmDelete']);
 
-Route::resource('expense_reports', ExpenseReportsController::class);
-Route::resource('expenses', ExpensesController::class);
 
-Route::get('expense_reports/{expense_report}/confirmDelete', [ExpenseReportsController::class, 'confirmDelete']);
-Route::get('expenses/{expense}/confirmDelete', [ExpensesController::class, 'confirmDelete']);
+Route::resource('/expense_reports/{expense_report}/expenses', ExpensesController::class);
+Route::get('/expense_reports/expenses/{id_expense}/confirmDelete', [ExpensesController::class, 'confirmDelete']);

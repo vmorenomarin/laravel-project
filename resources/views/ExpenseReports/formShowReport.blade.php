@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="main">
-    @if($report->expenses->count()>0)
     <h2>Report {{$report->id}}: {{$report->description}}</h2>
+    @if($report->expenses->count()>0)
     <table>
         <thead>
             <th>Descripción</th>
@@ -18,7 +18,7 @@
                 <td>${{$expense->price}}</td>
                 <td>{{date('d/m/Y', strtotime($expense->created_at))}}</td>
                 <td><span class="material-symbols-outlined edit-button"><a
-                            href="/expenses/{{$expense['id']}}/edit">edit</a></span>
+                            href="/expense_reports/{{$report->id}}/expenses/{{$expense->id}}/edit">edit</a></span>
                 </td>
             </tr>
             @endforeach
@@ -28,7 +28,7 @@
     <h2>Total: ${{$report->expenses->sum('price')}}</h2>
 
     @if($errors->any())
-    <div class="alert alert-danger">
+    <div class=" alert alert-danger">
         <ul>
             @foreach($errors->all() as $error)
             <li>{{$error}}</li>
@@ -39,12 +39,12 @@
 
     @else
     <div class="alert alert-info">
-        Must create a new report. Click on "Add report" button.
+        Must create a new expense. Click on "Add expense" button.
     </div>
     @endif
 
     <div id="new_expense_wrapper" class="form">
-        <form action="/expenses" method=" POST" id="new_expense">
+        <form action="/expense_reports/{{$report->id}}/expenses" method="POST" id="new_expense">
             @csrf
             <div class="fields">
                 <div class="rowForm">
@@ -85,7 +85,7 @@
             <span class="material-symbols-outlined">
                 add_circle
             </span>
-            Agregar detalle
+            Add expense
         </a>
     </div>
 </div>

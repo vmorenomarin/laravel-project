@@ -27,7 +27,7 @@ class ExpensesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ExpenseReport $expenseReport)
     {
         $validData = $request->validate([
             'description' => 'required|min:3',
@@ -43,10 +43,7 @@ class ExpensesController extends Controller
         $expenseReport->price=$expenseReport->expenses->sum('price');
         $expenseReport->save();
 
-
-        return redirect(to: "expense_reports/$expenseReport->id");
-
-        
+        return redirect(to: "/expense_reports/{$expenseReport->id}");
     }
 
     /**
@@ -60,13 +57,9 @@ class ExpensesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $expense)
+    public function edit(string $reportId, string $expenseID)
     {
-        
-        $dataExpense = Expense::find($expense);
-        
-        // dd($expense);
-        
+        $dataExpense = Expense::find($expenseID);
 
         return view(view:'ExpenseReports.formEditExpense', data:['dataExpense' => $dataExpense]);
 
@@ -75,20 +68,37 @@ class ExpensesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, ExpenseReport $expenseReport, string $expenseId)
     {
-        //
+
+        $validData = $request->validate([
+            'description' => 'required|min:3',
+            'price' => 'required'
+        ]);
+
+        $expense = Expense::find($expenseId);
+        
+        $expense->description = $validData['description'];
+        $expense->price = $validData['price'];
+        $expense->expense_report_id=$expenseReport->id;
+        $expense->save();
+        $expenseReport->price=$expenseReport->expenses->sum('price');
+        $expenseReport->save();
+
+        return redirect(to: "/expense_reports/{$expenseReport->id}");      
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ExpenseReport $expenseReport, string $id, )
     {
+        // dd($expenseReport);
         $expense= Expense::find($id);
-        $reportId=$expense->expense_report_id;
         $expense->delete();
-        return redirect(to: "expense_reports/{$reportId}");
+        $expenseReport->price = $expenseReport->expenses->sum('price');
+        $expenseReport->save();
+        return redirect(to: "/expense_reports/{$expenseReport->id}");
     }
 
     public function confirmDelete(string $id)

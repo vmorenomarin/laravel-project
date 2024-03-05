@@ -9,8 +9,8 @@
         </span>
     </a>
     <h2>Edit Expense {{$dataExpense['id']}}: {{$dataExpense['description']}}</h2>
-    <form action="/expense_reports/{{$dataExpense['id']}}" method="POST" id="expense">
-        <input type="hidden" id="editMode">
+    <form action="/expense_reports/{{$dataExpense['expense_report_id']}}/expenses/{{$dataExpense['id']}}" method="POST"
+        id="expense">
         @csrf
         @method('put')
         <div class="fields">
@@ -32,14 +32,22 @@
             </div>
         </div>
         <div class="buttons">
-            <a href="/expenses/{{$dataExpense['id']}}/confirmDelete" id="delete-btn" title="Delete expense"><span
-                    class="material-symbols-outlined">
+            <a href="/expense_reports/expenses/{{$dataExpense['id']}}/confirmDelete" id="delete-btn"
+                title="Delete expense"><span class="material-symbols-outlined">
                     delete </span></a>
-            <button type="submit" class="button"><span class="material-symbols-outlined">
+            <button type="submit" class="button" disabled><span class="material-symbols-outlined">
                     save </span>Save</button>
         </div>
     </form>
 
 </dialog>
+
+<script>
+document.querySelectorAll('.inputForm input').forEach(input => {
+    input.addEventListener('change', () => {
+        document.querySelector('button[type="submit"]').disabled = false;
+    });
+})
+</script>
 
 @endsection
