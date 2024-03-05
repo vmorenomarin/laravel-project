@@ -9,7 +9,7 @@
     --bg-dark-gray: #2A2E32;
     --bg-dark-gray-alpha: #7b7b7b1a;
     --bg-light-gray: #FCFCFC;
-    --bg-main: #f3f3f3;
+    --bg-body: #f3f3f3;
     --green-corp: #77DD77;
     --shadow: 2px 2px 8px #a3a3a37a
 }
@@ -22,12 +22,13 @@
 
 body {
     padding: 0 20rem;
+    background-color: var(--bg-body);
 }
 
 .main {
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-main);
+    background-color: #fff;
     padding: 1em;
     border-radius: 1rem;
     border: 0.1rem solid var(--bg-dark-gray-alpha);
