@@ -55,9 +55,10 @@ class ExpenseReportsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ExpenseReport $expenseReport)
+    public function show(ExpenseReport $expenseReport, Request $req)
     {
-        return view(view: 'ExpenseReports.formShowReport', data: ['report' => $expenseReport]);
+        $message=null!==$req->get('message') ? $req->get('message') :'';
+        return view(view: 'ExpenseReports.formShowReport', data: ['report' => $expenseReport, 'message'=>$message]);
     }
 
     /**
@@ -111,6 +112,8 @@ class ExpenseReportsController extends Controller
     {
         Mail::to($req->get('email'))->send(new ExpensesReport($expenseReport));
 
-        return redirect("/expense_reports/$expenseReport->id");
+        $message="Email with report $expenseReport->id ($expenseReport->description), was sended successfuly)";
+
+        return redirect("/expense_reports/$expenseReport->id?message=$message");
     }
 }

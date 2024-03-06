@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="main">
+
+    @if($message != '')
+    <div class="alert alert-info">
+        {{$message}}
+    </div>
+    @endif
+
     <h2>Report {{$report->id}}: {{$report->description}}</h2>
     @if($report->expenses->count()>0)
     <table>

@@ -19,7 +19,12 @@
                 <td>
                     {{$record['id']}}
                 </td>
-                <td><a href="expense_reports/{{$record['id']}}">{{$record['description']}}</a></td>
+                <td>
+                    <a href="expense_reports/{{$record['id']}}" title=" Ver detallle reporte {{$record['id']}}">
+                        {{$record['description']}} <span
+                            class=" material-symbols-outlined edit-button">jump_to_element</span>
+                    </a>
+                </td>
                 <td>$ {{$record['price']}}</td>
                 <td>{!! $record['is_active']==true ?
                     '<span class="material-symbols-outlined icon-table-positive">check_circle</span>' : '<span
@@ -35,9 +40,9 @@
         </tbody>
     </table>
 
-        <h2>Total: ${{$dataReport[0]['total']}}</h2>
-        @else
-                    
+    <h2>Total: ${{$dataReport[0]['total']}}</h2>
+    @else
+
     <div class="alert alert-info">
         Must create a new report. Click on "Add report" button.
     </div>

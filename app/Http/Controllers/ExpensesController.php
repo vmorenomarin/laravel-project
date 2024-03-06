@@ -42,8 +42,9 @@ class ExpensesController extends Controller
         $expense->save();
         $expenseReport->price=$expenseReport->expenses->sum('price');
         $expenseReport->save();
+        $message="Expense created succesfully.";
 
-        return redirect(to: "/expense_reports/{$expenseReport->id}");
+        return redirect(to: "/expense_reports/{$expenseReport->id}?message=$message");
     }
 
     /**
@@ -84,8 +85,9 @@ class ExpensesController extends Controller
         $expense->save();
         $expenseReport->price=$expenseReport->expenses->sum('price');
         $expenseReport->save();
+        $message="Expense updated succesfully.";
 
-        return redirect(to: "/expense_reports/{$expenseReport->id}");      
+        return redirect(to: "/expense_reports/{$expenseReport->id}?message=$message");      
     }
 
     /**
@@ -98,7 +100,8 @@ class ExpensesController extends Controller
         $expense->delete();
         $expenseReport->price = $expenseReport->expenses->sum('price');
         $expenseReport->save();
-        return redirect(to: "/expense_reports/{$expenseReport->id}");
+        $message="Expense deleted succesfully.";
+        return redirect(to: "/expense_reports/{$expenseReport->id}?message=$message");
     }
 
     public function confirmDelete(string $id)

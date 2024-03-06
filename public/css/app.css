@@ -346,6 +346,14 @@ table td {
     text-align: center;
 }
 
+table td a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit
+}
+
+
 table thead tr {
     background-color: #b8b8b885;
 }
