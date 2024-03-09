@@ -29,3 +29,6 @@ Route::post('/expense_reports/{expense_report}/sendEmail', [ExpenseReportsContro
 
 Route::resource('/expense_reports/{expense_report}/expenses', ExpensesController::class);
 Route::get('/expense_reports/expenses/{id_expense}/confirmDelete', [ExpensesController::class, 'confirmDelete']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

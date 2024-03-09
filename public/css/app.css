@@ -136,7 +136,7 @@ form .buttons {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 form {

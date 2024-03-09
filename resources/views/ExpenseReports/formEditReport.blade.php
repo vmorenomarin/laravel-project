@@ -50,8 +50,8 @@
             </div>
         </div>
         <div class="buttons">
-            <a href="/expense_reports/{!!$report['id']!!}/confirmDelete" id="delete-btn" title="Eliminar reporte" class="buttonNoText"><span
-                    class="material-symbols-outlined">
+            <a href="/expense_reports/{!!$report['id']!!}/confirmDelete" id="delete-btn" title="Eliminar reporte"
+                class="buttonNoText"><span class="material-symbols-outlined">
                     delete </span></a>
             <button type="submit" class="button"><span class="material-symbols-outlined">
                     save </span>Guardar</button>
