@@ -39,17 +39,21 @@
             @endforeach
         </tbody>
     </table>
+    <custom-toggle actived tags="Activo:A|Inactivo:B">
+        <span slot="description">Label del toggle</span>
+    </custom-toggle>
+    <custom-toggle actived tags="Negativo:N|Positivo:P">
+        <span slot="description">Otro Valor</span>
+    </custom-toggle>
 
     <h2>Total: ${{$dataReport[0]['total']}}</h2>
     @else
 
-    <div class="alert alert-info">
+    <div class=" alert alert-info">
         Must create a new report. Click on "Add report" button.
     </div>
 
     @endif
-
-
 
     <a href=" /expense_reports/create" id="abrirModal" class="button">
         <span class="material-symbols-outlined">

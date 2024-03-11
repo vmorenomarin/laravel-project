@@ -22,28 +22,25 @@ if (modal !== null) {
         });
     });
 
-    let valueOn = document.querySelector("span.on").dataset.value;
-    let valueOff = document.querySelector("span.off").dataset.value;
-    let iconOn = document.querySelector("span.on").dataset.icon;
-    let iconOff = document.querySelector("span.off").dataset.icon;
-    document.querySelector(".thumb span").textContent = iconOff;
-    let checkbox = document.getElementById("toggle");
-    if (!document.querySelector("#editMode")) checkbox.value = valueOff;
-
-    function toggle() {
-        checkbox.checked = !checkbox.checked;
-        checkbox.value = checkbox.checked ? valueOn : valueOff;
-        checkbox.icon = checkbox.checked ? iconOn : iconOff;
-        document.querySelector(".thumb span").textContent = checkbox.icon;
-    }
-
-    document.querySelector(".switch").addEventListener("click", toggle);
-
-    if (document.querySelector("#editMode") && document.querySelector("input#toggle").value == "S"
-    )toggle();
+  
 
     let alertDiv = document.querySelector("div.alert");
     alertDiv.addEventListener("click", () => {
         alertDiv.style.display = "none";
     });
 }
+
+// let valueOn = document.querySelector("span.on").dataset.value;
+// let valueOff = document.querySelector("span.off").dataset.value;
+// let iconOn = document.querySelector("span.on").dataset.icon;
+// let iconOff = document.querySelector("span.off").dataset.icon;
+// document.querySelector(".thumb span").textContent = iconOff;
+// let checkbox = document.getElementById("toggle");
+// if (!document.querySelector("#editMode")) checkbox.value = valueOff;
+
+
+
+// document.querySelector(".switch").addEventListener("click", toggle);
+
+// if (document.querySelector("#editMode") && document.querySelector("input#toggle").value == "S"
+// )toggle();
