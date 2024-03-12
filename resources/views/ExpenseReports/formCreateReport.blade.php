@@ -1,5 +1,4 @@
-@extends('templates.principal')
-
+@extends('layouts.app')
 
 @section('content')
 

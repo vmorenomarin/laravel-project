@@ -44,7 +44,7 @@
 
 <script>
 document.querySelectorAll('.inputForm input').forEach(input => {
-    input.addEventListener('change', () => {
+    input.addEventListener('keyup', () => {
         document.querySelector('button[type="submit"]').disabled = false;
     });
 })

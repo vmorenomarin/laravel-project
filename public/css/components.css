@@ -1,0 +1,132 @@
+/* Toggle Style */
+
+.switchContent {
+    display: inline-flex;
+    align-items: center;
+}
+
+.switchContent span.label-value {
+    /* font-size: 1.4rem; */
+    margin: 0 0.5rem;
+    max-width: 7rem;
+}
+
+.switch {
+    width: 34px;
+    height: 19px;
+    background-color: #7b7b7b1a;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid #7b7b7b1a;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.switch:hover {
+    border: 1px solid #ff004f;
+    transition: 0.3s;
+}
+
+
+.thumb {
+    width: 17px;
+    height: 17px;
+    background-color: #ff004f;
+    left: 0;
+    transition: 0.3s;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.switch input[type="checkbox"]:checked+.thumb {
+    background-color: var(--blue-corp);
+    left: calc(100% - 17px);
+    transition: 0.3s;
+}
+
+.switch:has(input[type="checkbox"]:checked):hover {
+    border: 1px solid var(--blue-corp);
+    transition: 0.3s;
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+/* End Toggle Style */
+/* ====================== */
+
+
+/* Alert Style */
+
+dialog#alert {
+    width: 40rem;
+    padding: 1rem;
+}
+
+div#alertHeader {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#alertHeader span {
+    font-size: 2rem;
+}
+
+div#alertBody {
+    margin: 2rem 2rem;
+}
+
+span.icon-alert {
+    animation: shake-horizontal 1.5s ease-out 100ms both;
+}
+
+span#closeAlert {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #2A2E32;
+    cursor: pointer;
+}
+
+span#closeAlert:hover {
+    color: #ff004f;
+}
+
+@keyframes shake-horizontal {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        transform: translateX(-1rem);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: translateX(1rem);
+    }
+
+    80% {
+        transform: translateX(0.8rem);
+    }
+
+    90% {
+        transform: translateX(-0.8rem);
+    }
+}
+
+/* End Alert Style */
+/* ====================== */

@@ -1,8 +1,7 @@
-@extends('templates.principal')
+@extends('layouts.app')
 
 
 @section('content')
-
 
 <dialog id="miModal">
     <a href="/expense_reports" id="cerrarModal" title="Cerar sin guardar" class="buttonNoText">
@@ -35,17 +34,7 @@
                     <label for="toggle">
                         ¿Pagado?
                     </label>
-                    <div class="switchContent">
-                        <span class="label-value off" data-icon="block" data-value="N">No</span>
-                        <div class=" switch">
-                            <input type="checkbox" id="toggle" name="toggle"
-                                value="{!!$report['is_active']==1 ? 'S':'N'  !!}">
-                            <div class="thumb">
-                                <span class="material-symbols-outlined "></span>
-                            </div>
-                        </div>
-                        <span class="label-value on" data-icon="check_circle" data-value="S">Sí</span>
-                    </div>
+                    <custom-toggle tags="No:N|Sí:S" value="{{$report['is_active']==1 ? 'S' :'N' }}"></custom-toggle>
                 </div>
             </div>
         </div>
@@ -57,7 +46,6 @@
                     save </span>Guardar</button>
         </div>
     </form>
-
 </dialog>
 
 @endsection

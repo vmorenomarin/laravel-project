@@ -39,12 +39,7 @@
             @endforeach
         </tbody>
     </table>
-    <custom-toggle actived tags="Activo:A|Inactivo:B">
-        <span slot="description">Label del toggle</span>
-    </custom-toggle>
-    <custom-toggle actived tags="Negativo:N|Positivo:P">
-        <span slot="description">Otro Valor</span>
-    </custom-toggle>
+
 
     <h2>Total: ${{$dataReport[0]['total']}}</h2>
     @else
@@ -61,6 +56,15 @@
         </span>
         Add report
     </a>
+
 </div>
+<button
+    onclick="ejecutarAlerta('warn', 'Lorem Imsump Allea Ha', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, fugiat dolor dicta similique tempore blanditiis quas aliquid.', 'alert\(\'Aleluya\'\)','alert\(\'Aleluya, Aceptar\'\)')"
+    id="abrirModal" class="button">
+    <span class="material-symbols-outlined">
+        add_alert
+    </span>
+    Add Alert
+</button>
 
 @endsection

@@ -1,14 +1,14 @@
-const modal = document.getElementById("miModal");
 
-if (modal !== null) {
-    const cerrarBtn = modal.querySelector("a#cerrarModal");
+if (document.getElementById("miModal")!== null) {
+    let modalDialog = document.getElementById("miModal");
+    const cerrarBtn = modalDialog.querySelector("a#cerrarModal");
 
     cerrarBtn.addEventListener("click", () => {
-        modal.close();
+        modalDialog.close();
     });
 
     window.onload = function () {
-        modal.showModal();
+        modalDialog.showModal();
     };
 
     let inputs = document.querySelectorAll("form input");
@@ -21,26 +21,30 @@ if (modal !== null) {
             input.previousElementSibling.classList.remove("focus");
         });
     });
-
-  
-
-    let alertDiv = document.querySelector("div.alert");
-    alertDiv.addEventListener("click", () => {
-        alertDiv.style.display = "none";
-    });
 }
 
-// let valueOn = document.querySelector("span.on").dataset.value;
-// let valueOff = document.querySelector("span.off").dataset.value;
-// let iconOn = document.querySelector("span.on").dataset.icon;
-// let iconOff = document.querySelector("span.off").dataset.icon;
-// document.querySelector(".thumb span").textContent = iconOff;
-// let checkbox = document.getElementById("toggle");
-// if (!document.querySelector("#editMode")) checkbox.value = valueOff;
+function ejecutarAlerta(
+    type,
+    header,
+    message,
+    accetpEvent = null,
+    cancelEvent = null
+) {
+    try {
+        if (!type || !header || !message) {
+            throw new Error("Not enough parameters to launch alert.");
+        }
+        let alert = document.createElement("custom-alert");
 
+        alert.setAttribute("type", type);
+        alert.setAttribute("header", header);
+        alert.setAttribute("message", message);
+        if (accetpEvent) alert.setAttribute("accept-event", accetpEvent);
+        if (cancelEvent && type == "warn")
+            alert.setAttribute("cancel-event", cancelEvent);
 
-
-// document.querySelector(".switch").addEventListener("click", toggle);
-
-// if (document.querySelector("#editMode") && document.querySelector("input#toggle").value == "S"
-// )toggle();
+        document.querySelector("body > div#app").appendChild(alert);
+    } catch (error) {
+        console.error(error.message);
+    }
+};

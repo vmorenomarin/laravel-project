@@ -242,62 +242,6 @@ a#cerrarModal:hover {
     }
 }
 
-.switchContent {
-    display: inline-flex;
-    align-items: center;
-}
-
-.switchContent span.label-value {
-    /* font-size: 1.4rem; */
-    margin: 0 0.5rem;
-    max-width: 7rem;
-}
-
-.switch {
-    width: 34px;
-    height: 19px;
-    background-color: #7b7b7b1a;
-    border-radius: 10px;
-    position: relative;
-    border: 1px solid #7b7b7b1a;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.switch:hover {
-    border: 1px solid #ff004f;
-    transition: 0.3s;
-}
-
-
-.thumb {
-    width: 17px;
-    height: 17px;
-    background-color: #ff004f;
-    left: 0;
-    transition: 0.3s;
-    position: absolute;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.switch input[type="checkbox"]:checked+.thumb {
-    background-color: var(--blue-corp);
-    left: calc(100% - 17px);
-    transition: 0.3s;
-}
-
-.switch:has(input[type="checkbox"]:checked):hover {
-    border: 1px solid var(--blue-corp);
-    transition: 0.3s;
-}
-
-.switch input[type="checkbox"] {
-    display: none;
-}
 
 .alert {
     padding: 1rem;
@@ -309,7 +253,8 @@ a#cerrarModal:hover {
 
 .alert-danger {
     border: 1px solid var(--red-corp);
-    background-color: var(--red-corp-alpha) color: var(--red-corp);
+    background-color: var(--red-corp-alpha);
+    color: var(--red-corp);
 }
 
 .alert-info {
@@ -388,6 +333,11 @@ table tbody tr span.icon-table-negative {
     gap: 2rem;
 }
 
+.twobuttonFooter {
+    display: flex;
+    justify-content: center;
+}
+
 div#new_expense_wrapper {
     display: none;
 }
@@ -403,5 +353,7 @@ div#new_expense_wrapper.show {
 }
 
 @media only screen and (max-width:1300px) {
-    body{padding: 0 20%}
+    body {
+        padding: 0 20%
+    }
 }
