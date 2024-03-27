@@ -23,7 +23,7 @@ if (document.getElementById("miModal")!== null) {
     });
 }
 
-function ejecutarAlerta(
+function alertExecution(
     type,
     header,
     message,
@@ -32,7 +32,7 @@ function ejecutarAlerta(
 ) {
     try {
         if (!type || !header || !message) {
-            throw new Error("Not enough parameters to launch alert.");
+            throw new Error("Not enough parameters to build and launch alert.");
         }
         let alert = document.createElement("custom-alert");
 

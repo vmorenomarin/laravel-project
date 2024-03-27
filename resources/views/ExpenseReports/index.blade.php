@@ -59,12 +59,11 @@
 
 </div>
 <button
-    onclick="ejecutarAlerta('warn', 'Lorem Imsump Allea Ha', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, fugiat dolor dicta similique tempore blanditiis quas aliquid.', 'alert\(\'Aleluya\'\)','alert\(\'Aleluya, Aceptar\'\)')"
+    onclick="alertExecution('error', 'Lorem Imsump Allea Ha', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, fugiat dolor dicta similique tempore blanditiis quas aliquid.', 'alert\(\'Aleluya\'\)','alert\(\'Aleluya, Aceptar\'\)')"
     id="abrirModal" class="button">
     <span class="material-symbols-outlined">
         add_alert
     </span>
     Add Alert
 </button>
-
 @endsection

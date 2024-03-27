@@ -6,7 +6,7 @@ class CustomAlert extends HTMLElement {
     constructor() {
         super();
         this.colors = {
-            success: "var(--green-corp)",
+            success: "var(--blue-corp)",
             error: "var(--red-corp)",
             warn: "var(--orange-corp)",
         };
@@ -51,6 +51,8 @@ class CustomAlert extends HTMLElement {
 
         this.alertModal.querySelector("span.icon-alert").style.color =
             this.colors[type];
+            this.alertModal.querySelector("span#title").style.color =
+            this.colors[type];    
         this.alertModal.querySelector("#alertHeader span#title").textContent =
             title;
         this.alertModal.querySelector("div#alertBody p").textContent = message;
